@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="zh_CN">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>OTP | 学生端</title>
+  <%include("../../include/css.html"){}%>
+</head>
+<body class="hold-transition sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
+<div class="wrapper">
+  <%include("../../student/include/header.html"){} %>
+  <!-- 左侧菜单栏 -->
+  <% layout("../include/sider.html",{name:"home"}){} %>
+  <!-- 引入全局 js 脚本文件 -->
+  <% include("../../include/js.html"){} %>
+  <div class="content-wrapper">
+    <!-- 右侧内容部分 -->
+    <%
+    #ajax homeTable: {
+    %>
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1>学生首页</h1>
+          </div>
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="#">学生首页</a></li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- table 部分 -->
+    <section class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-12">
+            <div class="callout callout-info">
+              <h5><i class="fa fa-info"></i>&nbsp;${session.student.name}同学，你好：</h5>
+              欢迎使用在线考试系统
+            </div>
+            <!-- Main content -->
+            <div class="invoice p-3 mb-3">
+              <!-- title row -->
+              <div class="invoice-title">
+                <div class="col-12">
+                  <h4>
+                    <i class="fa fa-book"></i> 考试倡议书
+                  </h4>
+                </div>
+                <!-- /.col -->
+              </div>
+              <!-- info row -->
+              <div class="col-12 table-responsive">
+                <table class="table table-light">
+                  <thead>
+                  <tr>
+                    <th>诚实守信是中华民族的传统美德，是我们每个人的立身之本，也是公民的基本道德要求之一。时光飞逝，我们即将迎来2021-2022学年第二学期期末考试，我们要面临的既是一次学习成果的检阅，更是一场道德与诚信的考验。在此，学校郑重向全校同学倡议如下：</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <tr>
+                    <td>一、排除外界干扰，积极备考。正确认识考试对评价自己的重要性。充分利用时间，认真复习，满怀信心迎接考试；</td>
+                  </tr>
+                  <tr>
+                    <td>二、提高自身修养，做一名诚信学生。我们要以诚信的态度对待每-场考试，考出真实水平；</td>
+                  </tr>
+                  <tr>
+                    <td>三、严肃考分考纪，端正学习与考试态度，严格遵守考试规章制度、实事求是，杜绝一切考试作弊形式。在不良念头前，严于自律；</td>
+                  </tr>
+                  <tr>
+                    <td>四、弘扬诚信正义。树立与不良风气作斗争的信心和勇气，勇于检举揭发考试作弊行为。</td>
+                  </tr>
+                  <tr>
+                    <td>最后，衷心预祝全体同学在期末考试中取得优异的成绩!</td>
+                  </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <%}%>
+  </div>
+  <aside class="control-sidebar control-sidebar-dark">
+    <!-- Control sidebar content goes here -->
+  </aside>
+  <!-- 引入footer -->
+  <% include("../../include/footer.html"){}%>
+  <%include("../main/api.html"){}%>
+  <!-- Control Sidebar -->
+</div>
+</body>
+</html>
+

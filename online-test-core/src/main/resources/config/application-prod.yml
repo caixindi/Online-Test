@@ -1,0 +1,105 @@
+# Server
+server:
+  port: 8085
+
+spring:
+  application:
+    name: ONLINE-TEST-SERVER
+
+  datasource:
+    url: jdbc:mysql://${mysql.url:39.104.160.208}:${mysql.port:3306}/${mysql.database.name:oes}?serverTimezone=Asia/Shanghai&characterEncoding=utf8&useSSL=false&allowPublicKeyRetrieval=true
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: ${mysql.username:root}
+    password: ${mysql.password:password}
+    hikari:
+      auto-commit: on
+      connection-timeout: 30000
+      idle-timeout: 600000
+      max-lifetime: 1800000
+      connection-test-query: SELECT 1
+      maximum-pool-size: 25
+      minimum-idle: 10
+      read-only: off
+      pool-name: OTP-HIKARI-POOL
+
+  # Task
+  task:
+    execution:
+      pool:
+        core-size: 10
+        max-size: 30
+        keep-alive: 60s
+        queue-capacity: 50
+      thread-name-prefix: OTP-POOL-TASK-
+    scheduling:
+      thread-name-prefix: OTP-SCHEDULE-
+      pool:
+        size: 2
+
+  # Lettuce-Redis
+  redis:
+    host: ${redis.url:39.104.160.208}
+    port: ${redis.port:6379}
+    password: ${redis.password:}
+    timeout: 2000ms
+    database: 0
+    lettuce:
+      pool:
+        max-active: 8
+        max-wait: -1ms
+        max-idle: 8
+        min-idle: 0
+
+  # Resource
+  resources:
+    static-locations: classpath:/static/
+
+  # Spring MVC
+  mvc:
+    static-path-pattern: /static/**
+
+  # redis-session
+  session:
+    store-type: redis
+    redis:
+      namespace: otp:session
+    timeout: PT2H
+
+  # Jackson2
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+
+  # Spring-Admin
+  boot:
+    admin:
+      client:
+        url: http://${spring-admin.url:localhost}:8400
+        username: ${spring-admin.username:otp}
+        password: ${spring-admin.password:123456}
+        instance:
+          prefer-ip: true
+
+  # 排除 BeetlSQL 自动的配置
+  autoconfigure:
+    exclude: com.ibeetl.starter.BeetlSqlSingleConfig
+
+# MyBatisPlus
+mybatis-plus:
+  global-config:
+    banner: off
+    db-config:
+      id-type: auto
+  type-aliases-package: com.cindy.test.common.model
+  configuration:
+    map-underscore-to-camel-case: on
+
+# Actuator
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  endpoint:
+    health:
+      show-details: ALWAYS
