@@ -182,7 +182,7 @@ Spring-Admin服务监控系统访问地址:http://39.104.160.208:8400   用户�
 
 系统管理员页面
 
-![image-20220531004621761](D:/Typora-note/img/README/image-20220531004621761.png)
+![](https://cxd-note-img.oss-cn-hangzhou.aliyuncs.com/typora-note-img/image-20220531004621761.png)
 
 学院管理员页面
 
