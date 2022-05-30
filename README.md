@@ -10,13 +10,13 @@ MySQL 数据库
 
 Redis  数据库
 
-## 如何运行
+## 本机如何运行
 
 1. 搭建mysql环境，并且运行文件夹doc中的sql脚本
 2. 搭建redis环境
 
 3. 修改文件`Online-Test\online-test-core\src\main\resources\config\application-prod.yml`，将其中的`mysql.url`、`mysql.port`和`mysql.database.name`替换。同时修改Redis的url，port以及password。
-4. 之后便可以启动微服务，首先启动SpringAdminApplication，其次启动otpServer。
+4. 启动微服务，首先启动SpringAdminApplication，其次启动otpServer。
 
 ## 快速部署
 
@@ -26,11 +26,13 @@ Redis  数据库
 
 ## 快速访问
 
-本项目已经部署在云服务上，访问地址如下：
+本项目已上传至github，地址：https://github.com/caixindi/Online-Test
+
+本项目已部署在阿里云服务器上，访问地址如下：
 
 服务端访问地址:http://39.104.160.208:8085
 
-Spring-Admin服务监控系统访问地址:http://39.104.160.208:8400   用户名：otp 密码：123456
+Spring-Admin服务监控系统访问地址:http://39.104.160.208:8400   用户名：otp  密码：123456
 
 ## 技术栈
 
