@@ -1,0 +1,21 @@
+version: '3'
+services:
+  adm:
+    container_name: otp-adm
+    image: caixindi/otp-adm:1.0.0
+    ports:
+      - 8400:8400
+    networks:
+      - my_net
+  server:
+    container_name: otp-server
+    image: caixindi/otp-server:1.0.0
+    ports:
+      - 8085:8085
+    depends_on:
+      - adm
+    networks:
+      - my_net
+networks:
+  my_net:
+    driver: bridge

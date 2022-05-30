@@ -1,23 +1,6 @@
-# Online-Test-Platform（在线考试平台）
+# 在线考试平台
 
 本项目是基于 SpringBoot 2.3 开发的在线考试平台。
-
-## 第三方依赖
-
-| 模块     | 依赖                            |
-| :------- | :------------------------------ |
-| 前端     | AdminLTE 3、JQuery |
-| 后端     | spring boot 2、MyBatis-Plus   |
-| 模板引擎 | beetl                           |
-| 数据库   | MySQL、Redis                    |
-| 工具类库 | guava、hutool、Apache-common                   |
-
-## 微服务
-
-| 服务名称 | 描述                            | 端口 |
-| :------- | ------------------------------- | -------- |
-| otp-server | 考试与信息维护服务系统 | 8085 |
-| otp-apm-spring-admin | Spring-Admin 服务监控子系统 | 8400 |
 
 ## 运行环境
 
@@ -26,6 +9,46 @@ JDK 8+
 MySQL 数据库
 
 Redis  数据库
+
+## 如何运行
+
+1. 搭建mysql环境，并且运行文件夹doc中的sql脚本
+2. 搭建redis环境
+
+3. 修改文件`Online-Test\online-test-core\src\main\resources\config\application-prod.yml`，将其中的`mysql.url`、`mysql.port`和`mysql.database.name`替换。同时修改Redis的url，port以及password。
+4. 之后便可以启动微服务，首先启动SpringAdminApplication，其次启动otpServer。
+
+## 快速部署
+
+本项目已经打包镜像至dockhub，可以在doc中找到`docker-compose.yml`文件，之后执行`docker-compose up -d` 命令完成快速部署。
+
+> 数据库相关部署已经完成，都部署在阿里云服务器上
+
+## 快速访问
+
+本项目已经部署在云服务上，访问地址如下：
+
+服务端访问地址:http://39.104.160.208:8085
+
+Spring-Admin服务监控系统访问地址:http://39.104.160.208:8400   用户名：otp 密码：123456
+
+## 技术栈
+
+| 模块     | 依赖                         |
+| :------- | :--------------------------- |
+| 前端     | AdminLTE 3、JQuery           |
+| 后端     | spring boot 2、MyBatis-Plus  |
+| 模板引擎 | beetl                        |
+| 数据库   | MySQL、Redis                 |
+| 工具类库 | guava、hutool、Apache-common |
+
+## 微服务
+
+| 服务名称             | 描述                        | 端口 |
+| :------------------- | --------------------------- | ---- |
+| otp-server           | 考试与信息维护服务系统      | 8085 |
+| otp-apm-spring-admin | Spring-Admin 服务监控子系统 | 8400 |
+
 ## 架构设计
 
 ![image-20220528141959244](https://cxd-note-img.oss-cn-hangzhou.aliyuncs.com/typora-note-img/image-20220528141959244-16537289552663.png)
@@ -143,15 +166,25 @@ Redis  数据库
 
 系统登录页面
 
-![image-20220528161706396](https://cxd-note-img.oss-cn-hangzhou.aliyuncs.com/typora-note-img/image-20220528161706396-16537270508871.png)
+![](https://cxd-note-img.oss-cn-hangzhou.aliyuncs.com/typora-note-img/image-20220528161706396-16537270508871.png)
 
-学生端首页
-
-  ![image-20220528163425060](https://cxd-note-img.oss-cn-hangzhou.aliyuncs.com/typora-note-img/image-20220528163425060.png)
+学生端首页  ![](https://cxd-note-img.oss-cn-hangzhou.aliyuncs.com/typora-note-img/image-20220528163425060.png)
 
 我的考试页面
 
-![image-20220528163647065](https://cxd-note-img.oss-cn-hangzhou.aliyuncs.com/typora-note-img/image-20220528163647065.png)
+![](https://cxd-note-img.oss-cn-hangzhou.aliyuncs.com/typora-note-img/image-20220528163647065.png)
+
+考试页面
+
+![](https://cxd-note-img.oss-cn-hangzhou.aliyuncs.com/typora-note-img/image-20220531003103366.png)
+
+系统管理员页面
+
+![image-20220531004621761](D:/Typora-note/img/README/image-20220531004621761.png)
+
+学院管理员页面
+
+![](https://cxd-note-img.oss-cn-hangzhou.aliyuncs.com/typora-note-img/image-20220531002900801.png)
 
 
 
